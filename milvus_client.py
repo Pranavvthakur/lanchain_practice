@@ -1,34 +1,3 @@
-# from pymilvus import connections, Collection, CollectionSchema, FieldSchema, DataType
-
-# def connect_milvus():
-#     connections.connect("default", host="localhost", port="19530")
-
-# def create_collection():
-#     fields = [
-#         FieldSchema(name="id", dtype=DataType.INT64, is_primary=True, auto_id=True),
-#         FieldSchema(name="embedding", dtype=DataType.FLOAT_VECTOR, dim=384),
-#         FieldSchema(name="text", dtype=DataType.VARCHAR, max_length=1000)
-#     ]
-#     schema = CollectionSchema(fields, description="PDF Chunk Embeddings")
-#     collection = Collection("pdf_chunks", schema)
-#     return collection
-
-# def create_index(collection):
-#     index_params = {
-#         "metric_type": "L2",
-#         "index_type": "IVF_FLAT",
-#         "params": {"nlist": 1024}
-#     }
-#     collection.create_index(field_name="embedding", index_params=index_params)
-
-# def insert_data(collection, embeddings, texts):
-#     collection.insert([embeddings.tolist(), texts])
-#     collection.flush()
-
-# def load_collection(collection_name="pdf_chunks"):
-#     return Collection(collection_name)
-
-
 import os
 from typing import List
 from PyPDF2 import PdfReader

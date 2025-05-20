@@ -6,17 +6,17 @@ from rag_chain import get_answer
 connect_milvus()
 collection = load_collection()
 
-    # Step 2: Define the query
-query = "How many sibilings did the seagull have?"
+# Step 2: Define the query
+query = "who is owner of mumbai indians?"
     
-    # Step 3: Get query vector
+# Step 3: Get query vector
 query_vector = get_query_embedding(query)
     
-    # Step 4: Search Milvus and get top chunks
+# Step 4: Search Milvus and get top chunks
 top_chunks = search_collection(collection, query_vector, top_k=10)
 context = "\n\n".join(top_chunks)
 
-    # Step 5: Run RAG pipeline
+# Step 5: Run RAG pipeline
 answer = get_answer(context, query)
 
 print("Final Answer:\n", answer)
